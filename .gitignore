@@ -1,0 +1,22 @@
+# Ignore arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Diretórios
+teste/
+/*-bkp*
+/v*
+
+# Arquivos temporários
+*.log
+*.tmp
+*-bkp.*
+*-teste.*
+/Link*
+*log.txt
+
+# Backup de editores
+*~

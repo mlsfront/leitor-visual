@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor Visual</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <main>
+        <div class="logo">
+            <img src="assets/logo.png" alt="Logo Leitor Visual" width="100" height="100">
+            <h1><span class="leitor">Leitor </span><span class="visual">Visual</span></h1>
+        </div>
+        
+        <section id="config-section">
+            <details class="configuracao">
+                <summary>⚙️ Configurações</summary>
+                <h2>Configurações</h2>
+
+                <div class="config-row">
+                    <label>Cor do destaque:
+                        <input type="color" id="colorPicker" value="#ffff00" />
+                    </label>
+
+                    <label>Tempo entre destaques (ms):
+                        <input type="number" id="intervalTime" value="400" min="100" />
+                    </label>
+
+                    <label>Tempo por palavra (ms):
+                        <input type="number" id="timePerWord" value="400" min="100" />
+                    </label>
+
+                    <label>Tipo de demarcação:
+                        <select id="modeSelect">
+                            <option value="word">Por palavra</option>
+                            <option value="sentence">Por frase</option>
+                        </select>
+                    </label>
+
+                    <label>Carregar texto:
+                        <input type="file" id="uploadText" accept=".txt,.md,.html" />
+                    </label>
+                </div>
+            </details>
+
+            <div class="button-row">
+                <button id="startBtn">▶ Iniciar</button>
+                <button id="pauseBtn">⏸ Pausar</button>
+                <button id="stopBtn">⏹ Parar</button>
+                <button id="clearStorageBtn">🗑 Limpar texto salvo</button>
+                <!-- <button id="copyBtn">📋 Copiar texto</button> -->
+                <div class="dropdown">
+                    <button class="dropbtn hide-on-mobile">📋 Copiar conteúdo ▼</button>
+                    <div class="dropdown-content">
+                        <button id="copyPlainBtn">Copiar como Texto</button>
+                        <button id="copyMarkdownBtn">Copiar como Markdown</button>
+                    </div>
+                </div>
+                <select class="exportSelect" id="exportSelect">
+                    <option value="">⬇ Exportar como...</option>
+                    <option value="txt">.txt</option>
+                    <option value="md">.md</option>
+                    <option value="html">.html</option>
+                </select>
+
+                <label class="hide-on-mobile">
+                    <input type="checkbox" id="includeStyle" checked />
+                    Incluir estilo CSS no HTML exportado
+                </label>  
+        
+                <label class="hide-on-mobile">
+                    <input type="checkbox" id="enableKeyboardShortcuts" checked />
+                    Ativar atalhos de teclado (Enter, Espaço, etc.)
+                </label>
+            </div>
+
+            <div class="progress-wrapper">
+                <label>Progresso:</label>
+                <progress id="progressBar" value="0" max="100"></progress>
+            </div>
+        </section>
+
+        <section id="text-container">
+            <div id="text" contenteditable="true">
+                <p>Carregue ou edite este conteúdo diretamente aqui.</p>
+                <p>O que você digitar será salvo automaticamente no navegador.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
