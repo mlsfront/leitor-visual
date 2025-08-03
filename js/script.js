@@ -434,9 +434,25 @@ document.getElementById('clearStorageBtn').addEventListener('click', () => {
   location.reload();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const modeSelect = document.getElementById('modeSelect');
+  const timeInputLabel = document.querySelector('label[for="timePerWord"]');
+
+  if (modeSelect.value === 'word') {
+    timeInputLabel.style.display = 'none';
+  }
+});
+
 document.getElementById('modeSelect').addEventListener('change', (e) => {
-  const intervalInput = document.getElementById('intervalTime');
-  intervalInput.value = e.target.value === 'sentence' ? 1200 : 400;
+  const isSentenceMode = e.target.value === 'sentence';
+
+  document.getElementById('intervalTime').value = isSentenceMode ? 1200 : 400;
+
+  const timeInputLabel = document.querySelector('label[for="timePerWord"]');
+  const timeInput = document.getElementById('timePerWord');
+
+  timeInput.value = isSentenceMode ? 400 : 0;
+  timeInputLabel.style.display = isSentenceMode ? '' : 'none';
 });
 
 /**
