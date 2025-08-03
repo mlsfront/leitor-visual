@@ -4,25 +4,28 @@ Uma aplicação web interativa que simula a leitura feita por leitores de tela, 
 
 ## 🧩 Funcionalidades
 
-- 🔁 Leitura por **palavra** ou **frase**  
-- 🎨 Destaque com **cor personalizada**  
-- ⏱ Tempo ajustável por unidade ou por palavra  
-- 🔼 **Scroll automático** durante a leitura  
-- ⏸ Botões de **Início / Pausa / Parar**  
-- 🔗 Atalhos de teclado para desktop *(ativados via checkbox nas configurações)*:  
-  - `Espaço`: Pausar/continuar  
-  - `Enter`: Iniciar (quando focado fora do editor)  
-  - `Esc`: Parar  
-  - `Ctrl + C`: Copiar  
-  - `Ctrl + S`: Exportar  
-- 📋 **Copiar conteúdo** como:  
-  - Markdown  
-  - Texto puro  
-- 📁 Suporte a arquivos `.txt`, `.md`, `.html`  
-- 💾 Armazenamento automático com `localStorage`  
-- 📤 Exportação como `.txt`, `.md` ou `.html`  
-- 🖥 Interface com **painel fixo** e área de leitura com rolagem  
-- ✅ Checkbox para ativar/desativar atalhos de teclado no desktop, facilitando a edição sem disparar ações indesejadas  
+* 🔁 Leitura por **palavra** ou **frase**
+* ⏮ **Voltar** e ⏭ **Avançar** manualmente conforme tipo de leitura selecionado
+* 🎨 Destaque com **cor personalizada**
+* ⏱ Tempo ajustável por unidade ou por palavra
+* 🔼 **Scroll automático** durante a leitura
+* ⏸ Botões de **Início / Pausa / Parar**
+* 🔗 Atalhos de teclado para desktop *(ativados via checkbox nas configurações)*:
+
+  * `Espaço`: Pausar/continuar
+  * `Enter`: Iniciar (quando focado fora do editor)
+  * `Esc`: Parar
+  * `Ctrl + C`: Copiar
+  * `Ctrl + S`: Exportar
+* 📋 **Copiar conteúdo** como:
+
+  * Markdown
+  * Texto puro
+* 📁 Suporte a arquivos `.txt`, `.md`, `.html`
+* 💾 Armazenamento automático com `localStorage`
+* 📤 Exportação como `.txt`, `.md` ou `.html`
+* 🖥 Interface com **painel fixo** e área de leitura com rolagem
+* ✅ Checkbox para ativar/desativar atalhos de teclado no desktop, facilitando a edição sem disparar ações indesejadas
 
 ## 🚀 Como usar
 
@@ -37,9 +40,9 @@ cd leitor-visual
 
 ## 🛠 Configurações Importantes
 
-- Na seção **Configurações**, você encontrará um checkbox (visível apenas em telas maiores) chamado **"Ativar atalhos de teclado (Enter, Espaço, etc.)"**.  
-- Esse checkbox **ativa ou desativa** os atalhos de teclado no desktop, garantindo que você possa editar o texto livremente sem que as teclas disparem ações involuntárias.  
-- Em telas pequenas (celulares/tablets), o checkbox é desativado e oculto automaticamente, pois a navegação é feita via botões na interface, e os atalhos por teclado ficam desabilitados para melhor usabilidade.
+* Na seção **Configurações**, você encontrará um checkbox (visível apenas em telas maiores) chamado **"Ativar atalhos de teclado (Enter, Espaço, etc.)"**.
+* Esse checkbox **ativa ou desativa** os atalhos de teclado no desktop, garantindo que você possa editar o texto livremente sem que as teclas disparem ações involuntárias.
+* Em telas pequenas (celulares/tablets), o checkbox é desativado e oculto automaticamente, pois a navegação é feita via botões na interface, e os atalhos por teclado ficam desabilitados para melhor usabilidade.
 
 ## 🌐 GitHub Pages
 

@@ -118,6 +118,35 @@ function startIntervalLoop(color, baseInterval) {
   run();
 }
 
+/**
+ * Lógica de avanço/retrocesso considerando frases ou palavras
+ */
+function getPreviousIndex(index) {
+  const mode = document.getElementById('modeSelect').value;
+  if (mode === 'sentence') {
+    for (let i = index - 1; i >= 0; i--) {
+      if (spans[i].dataset.unit === 'sentence') {
+        return i;
+      }
+    }
+    return 0;
+  }
+  return Math.max(0, index - 1);
+}
+
+function getNextIndex(index) {
+  const mode = document.getElementById('modeSelect').value;
+  if (mode === 'sentence') {
+    for (let i = index + 1; i < spans.length; i++) {
+      if (spans[i].dataset.unit === 'sentence') {
+        return i;
+      }
+    }
+    return spans.length - 1;
+  }
+  return Math.min(spans.length - 1, index + 1);
+}
+
 // ================================
 // AÇÕES PRINCIPAIS (Iniciar, Pausar, Parar)
 // ================================
@@ -139,7 +168,7 @@ function startReading() {
 function pauseReading() {
   if (intervalId) {
     isPaused = !isPaused;
-    document.getElementById('pauseBtn').textContent = isPaused ? 'Continuar' : 'Pausar';
+    document.getElementById('pauseBtn').textContent = isPaused ? 'Continuar' : '⏸';
     if (!isPaused) {
       const color = document.getElementById('colorPicker').value;
       const interval = parseInt(document.getElementById('intervalTime').value, 10);
@@ -150,6 +179,22 @@ function pauseReading() {
   }
 }
 
+document.getElementById('prevBtn').addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex = getPreviousIndex(currentIndex);
+    applyHighlight(currentIndex, document.getElementById('colorPicker').value);
+    updateProgressBar();
+  }
+});
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+  if (currentIndex < spans.length - 1) {
+    currentIndex = getNextIndex(currentIndex);
+    applyHighlight(currentIndex, document.getElementById('colorPicker').value);
+    updateProgressBar();
+  }
+});
+
 function stopReading() {
   clearInterval(intervalId);
   isPaused = false;
@@ -159,7 +204,7 @@ function stopReading() {
     span.style.backgroundColor = '';
   });
   updateProgressBar();
-  document.getElementById('pauseBtn').textContent = 'Pausar';
+  document.getElementById('pauseBtn').textContent = '⏸';
 }
 
 // ================================
@@ -446,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('modeSelect').addEventListener('change', (e) => {
   const isSentenceMode = e.target.value === 'sentence';
 
-  document.getElementById('intervalTime').value = isSentenceMode ? 1200 : 400;
+  document.getElementById('intervalTime').value = isSentenceMode ? 1350 : 400;
 
   const timeInputLabel = document.querySelector('label[for="timePerWord"]');
   const timeInput = document.getElementById('timePerWord');
@@ -501,8 +546,6 @@ window.addEventListener('DOMContentLoaded', updateCheckbox);
 
 // Atualiza ao redimensionar janela
 window.addEventListener('resize', updateCheckbox);
-
-
 
 /**
  * Carrega conteúdo salvo ao abrir

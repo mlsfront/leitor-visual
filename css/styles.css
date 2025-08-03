@@ -93,6 +93,7 @@ details.configuracao {
 }
 
 .button-row, select.exportSelect {
+  text-align: center;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -117,9 +118,8 @@ details.configuracao {
 }
 
 #text-container {
-  height: calc(100vh - 440px); /* ajuste para caber abaixo do painel */
+  height: calc(100vh - 350px); /* ajuste para caber abaixo do painel */
   overflow-y: auto;
-  padding: 1rem;
   box-sizing: border-box;
   line-height: 1.6;
   font-size: 1.1rem;
@@ -143,6 +143,10 @@ span[data-unit="word"] {
   background-color: yellow; /* sobrescrito via JS */
 }
 
+.conf-space {
+  padding: 15px 0;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   html {
@@ -160,6 +164,15 @@ span[data-unit="word"] {
 @media (max-width: 480px) {
   html {
     font-size: 16px;
+  }
+
+  main {
+    margin: 0;
+    padding-top: 0;
+  }
+
+  .coluna button {
+    width: 30% !important;
   }
 }
 

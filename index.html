@@ -44,39 +44,45 @@
                     <label>Carregar texto:
                         <input type="file" id="uploadText" accept=".txt,.md,.html" />
                     </label>
+
+                    <select class="exportSelect" id="exportSelect">
+                        <option value="">⬇ Exportar como</option>
+                        <option value="txt">.txt</option>
+                        <option value="md">.md</option>
+                        <option value="html">.html</option>
+                    </select>
                 </div>
             </details>
 
             <div class="button-row">
-                <button id="startBtn">▶ Iniciar</button>
-                <button id="pauseBtn">⏸ Pausar</button>
-                <button id="stopBtn">⏹ Parar</button>
-                <button id="clearStorageBtn">🗑 Limpar texto salvo</button>
-                <!-- <button id="copyBtn">📋 Copiar texto</button> -->
+                <div class="coluna">
+                    <button title="Iniciar" id="startBtn">▶</button>
+                    <button title="Pausar" id="pauseBtn">⏸</button>
+                    <button title="Voltar" id="prevBtn">⏮</button>
+                </div>
+                <div class="coluna">
+                    <button title="Avançar" id="nextBtn">⏭</button>
+                    <button title="Parar" id="stopBtn">⏹</button>
+                    <button id="clearStorageBtn">Limpar</button>
+                </div>
                 <div class="dropdown">
-                    <button class="dropbtn hide-on-mobile">📋 Copiar conteúdo ▼</button>
+                    <button class="dropbtn hide-on-mobile">📋 Copiar ▼</button>
                     <div class="dropdown-content">
                         <button id="copyPlainBtn">Copiar como Texto</button>
                         <button id="copyMarkdownBtn">Copiar como Markdown</button>
                     </div>
                 </div>
-                <select class="exportSelect" id="exportSelect">
-                    <option value="">⬇ Exportar como...</option>
-                    <option value="txt">.txt</option>
-                    <option value="md">.md</option>
-                    <option value="html">.html</option>
-                </select>
-
-                <label class="hide-on-mobile">
-                    <input type="checkbox" id="includeStyle" checked />
-                    Incluir estilo CSS no HTML exportado
-                </label>  
-        
-                <label class="hide-on-mobile">
-                    <input type="checkbox" id="enableKeyboardShortcuts" checked />
-                    Ativar atalhos de teclado (Enter, Espaço, etc.)
-                </label>
-            </div>
+                <div>
+                    <label class="hide-on-mobile">
+                        <input type="checkbox" id="includeStyle" checked />
+                        Incluir estilo CSS no HTML exportado
+                    </label>              
+                    <label class="hide-on-mobile">
+                        <input type="checkbox" id="enableKeyboardShortcuts" checked />
+                        Ativar atalhos de teclado (Enter, Espaço, etc.)
+                    </label>
+                </div>
+            </div>   
 
             <div class="progress-wrapper">
                 <label>Progresso:</label>
@@ -89,9 +95,9 @@
                 <p>Carregue ou edite este conteúdo diretamente aqui.</p>
                 <p>O que você digitar será salvo automaticamente no navegador.</p>
             </div>
-        </section>
+        </section>   
+        <div class="conf-space"></div>     
     </main>
-
     <script src="js/script.js"></script>
 </body>
 
